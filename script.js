@@ -1,4 +1,3 @@
-/* script.js */
 document.addEventListener("DOMContentLoaded", () => {
     const courses = [
         { title: "Python do Zero ao Profissional", category: "Programação", duration: "28h", modules: 9, level: "Iniciante" },
@@ -17,7 +16,7 @@ document.addEventListener("DOMContentLoaded", () => {
     
     const coursesList = document.getElementById("courses-list");
     const filterButtons = document.querySelectorAll(".filter-btn");
-    const searchInput = document.querySelector(".banner input");
+    const searchInput = document.getElementById("search-input");
 
     function renderCourses(filter = "Todos", search = "") {
         coursesList.innerHTML = "";
@@ -26,13 +25,17 @@ document.addEventListener("DOMContentLoaded", () => {
             course.title.toLowerCase().includes(search.toLowerCase())
         ).forEach(course => {
             const courseCard = document.createElement("div");
-            courseCard.classList.add("course-card");
+            courseCard.classList.add("col-md-4", "mb-3");
             courseCard.innerHTML = `
-                <h3>${course.title}</h3>
-                <p><strong>Categoria:</strong> ${course.category}</p>
-                <p><strong>Duração:</strong> ${course.duration}</p>
-                <p><strong>Módulos:</strong> ${course.modules}</p>
-                <p><strong>Nível:</strong> ${course.level}</p>
+                <div class="card shadow-sm">
+                    <div class="card-body">
+                        <h5 class="card-title">${course.title}</h5>
+                        <p class="card-text"><strong>Categoria:</strong> ${course.category}</p>
+                        <p class="card-text"><strong>Duração:</strong> ${course.duration}</p>
+                        <p class="card-text"><strong>Módulos:</strong> ${course.modules}</p>
+                        <p class="card-text"><strong>Nível:</strong> ${course.level}</p>
+                    </div>
+                </div>
             `;
             coursesList.appendChild(courseCard);
         });

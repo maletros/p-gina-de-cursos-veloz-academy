@@ -1,118 +1,91 @@
-/* styles.css */
+/* Transições gerais */
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f4f4f4;
     transition: background 0.3s, color 0.3s;
-}
-
-body.dark-mode {
-    background-color: #2c3e50;
-    color: white;
-}
-
-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background: #2c3e50;
-    color: white;
-    padding: 15px 30px;
-}
-
-.logo {
-    font-size: 20px;
-    font-weight: bold;
-}
-
-nav ul {
-    list-style: none;
-    display: flex;
-    gap: 20px;
-}
-
-nav ul li a {
-    color: white;
-    text-decoration: none;
-}
-
-.header-buttons {
-    display: flex;
-    gap: 10px;
-}
-
-.btn {
-    background: #3498db;
+  }
+  
+  /* Sobrescreve o bg-light quando dark mode estiver ativo */
+  body.dark-mode,
+  body.dark-mode.bg-light {
+    background-color: #2c3e50 !important;
+    color: white !important;
+  }
+  
+  /* Dark mode para Navbar */
+  body.dark-mode .navbar {
+    background-color: #1f2a36 !important;
+  }
+  
+  /* Dark mode para Cards */
+  body.dark-mode .card {
+    background-color: #3b4a57;
     color: white;
     border: none;
-    padding: 10px 15px;
-    cursor: pointer;
-    border-radius: 5px;
-}
-
-.btn:hover {
-    background: #2980b9;
-}
-
-.banner {
+    box-shadow: none;
+  }
+  
+  /* Dark mode para botões outline-primary (filtros) */
+  body.dark-mode .btn.btn-outline-primary {
+    border-color: #ffffff !important;
+    color: white !important;
+    background-color: transparent !important;
+  }
+  body.dark-mode .btn.btn-outline-primary:hover,
+  body.dark-mode .btn.btn-outline-primary.filter-btn.active,
+  body.dark-mode .btn.btn-outline-primary.active {
+    background-color: #3498db !important;
+    border-color: #3498db !important;
+    color: white !important;
+  }
+  
+  /* Dark mode para botões outline-light (ex: botão de tema) */
+  body.dark-mode .btn.btn-outline-light {
+    border-color: #ffffff !important;
+    color: white !important;
+    background-color: transparent !important;
+  }
+  body.dark-mode .btn.btn-outline-light:hover {
+    background-color: #3498db !important;
+    border-color: #3498db !important;
+    color: white !important;
+  }
+  
+  /* Dark mode para inputs */
+  body.dark-mode .form-control {
+    background-color: #3b4a57;
+    color: white;
+    border-color: #ffffff;
+  }
+  body.dark-mode .form-control::placeholder {
+    color: #bdc3c7;
+  }
+  
+  /* Estilo do Banner (opcional, sem conflito com Bootstrap) */
+  .banner {
     text-align: center;
     padding: 50px 20px;
-    background: #34495e;
-    color: white;
-}
-
-.banner input {
-    padding: 10px;
-    width: 80%;
+  }
+  
+  /* Limitar largura do input de busca */
+  #search-input {
     max-width: 400px;
-    margin-top: 10px;
-}
-
-.filters {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    margin: 20px 0;
-}
-
-.filters .filter-btn {
-    padding: 10px;
-    border: none;
-    background: #bdc3c7;
-    cursor: pointer;
-    border-radius: 5px;
+  }
+  
+  /* Transição para os botões de filtro */
+  .filter-btn {
     transition: background 0.3s, color 0.3s;
-}
-
-.filters .filter-btn.active {
-    background: #3498db;
-    color: white;
-}
-
-.courses {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 20px;
-    padding: 20px;
-}
-
-.course-card {
-    background: white;
-    padding: 15px;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-body.dark-mode .course-card {
-    background: #3b4a57;
-    box-shadow: none;
-}
-
-footer {
-    text-align: center;
-    padding: 20px;
-    background: #2c3e50;
-    color: white;
+  }
+  
+  /* Efeito de hover nos cards */
+  .card {
+    border-radius: 10px;
+    transition: transform 0.2s;
+  }
+  .card:hover {
+    transform: scale(1.03);
+  }
+  
+  /* Espaçamento do rodapé */
+  footer {
     margin-top: 20px;
-}
+  }
+  

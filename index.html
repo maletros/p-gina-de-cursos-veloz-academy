@@ -2,50 +2,57 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Veloz Academy - Cursos</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
-<body>
-    <header>
-        <div class="logo">VelozAcademy</div>
-        <nav>
-            <ul>
-                <li><a href="#">Início</a></li>
-                <li><a href="#">Cursos</a></li>
-                <li><a href="#">Trilhas</a></li>
-                <li><a href="#">Leaderboard</a></li>
+<body class="bg-light">
+    <header class="navbar navbar-expand-lg navbar-dark bg-dark px-3">
+        <a class="navbar-brand fw-bold" href="#">VelozAcademy</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a class="nav-link" href="#">Início</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Cursos</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Trilhas</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Leaderboard</a></li>
             </ul>
-        </nav>
-        <div class="header-buttons">
-            <button id="theme-toggle" class="btn">🌙</button>
-            <button class="btn">Comece Agora</button>
+            <button id="theme-toggle" class="btn btn-outline-light ms-3">🌙</button>
+            <button class="btn btn-primary ms-2">Comece Agora</button>
         </div>
     </header>
-    
-    <section class="banner">
+
+    <section class="text-center p-5 bg-primary text-white">
         <h1>Todos os Cursos</h1>
         <p>Explore nossa biblioteca completa de cursos em diferentes áreas de conhecimento.</p>
-        <input type="text" placeholder="Buscar curso...">
+        <input type="text" class="form-control w-50 mx-auto mt-3" placeholder="Buscar curso..." id="search-input">
     </section>
-    
-    <section class="filters">
-        <button class="filter-btn active" data-category="Todos">Todos os Cursos</button>
-        <button class="filter-btn" data-category="Programação">Programação</button>
-        <button class="filter-btn" data-category="Empreendedorismo">Empreendedorismo</button>
-        <button class="filter-btn" data-category="Design">Design</button>
-        <button class="filter-btn" data-category="Marketing Digital">Marketing</button>
-        <button class="filter-btn" data-category="Data Science">Data Science</button>
-    </section>
-    
-    <section class="courses" id="courses-list">
-        <!-- Os cursos serão inseridos aqui pelo JavaScript -->
-    </section>
-    
-    <footer>
+
+    <div class="container my-4">
+        <div class="d-flex justify-content-center gap-2 flex-wrap">
+            <button class="btn btn-outline-primary active filter-btn" data-category="Todos">Todos os Cursos</button>
+            <button class="btn btn-outline-primary filter-btn" data-category="Programação">Programação</button>
+            <button class="btn btn-outline-primary filter-btn" data-category="Empreendedorismo">Empreendedorismo</button>
+            <button class="btn btn-outline-primary filter-btn" data-category="Design">Design</button>
+            <button class="btn btn-outline-primary filter-btn" data-category="Marketing Digital">Marketing</button>
+            <button class="btn btn-outline-primary filter-btn" data-category="Data Science">Data Science</button>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row" id="courses-list">
+            <!-- Cursos serão inseridos aqui -->
+        </div>
+    </div>
+
+    <footer class="text-center p-3 bg-dark text-white mt-4">
         <p>&copy; 2025 VelozAcademy - Todos os direitos reservados</p>
     </footer>
-    
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
