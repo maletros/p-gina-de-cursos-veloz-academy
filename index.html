@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Veloz Academy - Cursos</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="logo">VelozAcademy</div>
+        <nav>
+            <ul>
+                <li><a href="#">Início</a></li>
+                <li><a href="#">Cursos</a></li>
+                <li><a href="#">Trilhas</a></li>
+                <li><a href="#">Leaderboard</a></li>
+            </ul>
+        </nav>
+        <div class="header-buttons">
+            <button id="theme-toggle" class="btn">🌙</button>
+            <button class="btn">Comece Agora</button>
+        </div>
+    </header>
+    
+    <section class="banner">
+        <h1>Todos os Cursos</h1>
+        <p>Explore nossa biblioteca completa de cursos em diferentes áreas de conhecimento.</p>
+        <input type="text" placeholder="Buscar curso...">
+    </section>
+    
+    <section class="filters">
+        <button class="filter-btn active" data-category="Todos">Todos os Cursos</button>
+        <button class="filter-btn" data-category="Programação">Programação</button>
+        <button class="filter-btn" data-category="Empreendedorismo">Empreendedorismo</button>
+        <button class="filter-btn" data-category="Design">Design</button>
+        <button class="filter-btn" data-category="Marketing Digital">Marketing</button>
+        <button class="filter-btn" data-category="Data Science">Data Science</button>
+    </section>
+    
+    <section class="courses" id="courses-list">
+        <!-- Os cursos serão inseridos aqui pelo JavaScript -->
+    </section>
+    
+    <footer>
+        <p>&copy; 2025 VelozAcademy - Todos os direitos reservados</p>
+    </footer>
+    
+    <script src="script.js"></script>
+</body>
+</html>
