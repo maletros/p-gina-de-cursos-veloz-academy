@@ -1,91 +1,395 @@
-/* Transições gerais */
+/* Variáveis CSS para temas e consistência visual */
+:root {
+  /* Cores do tema claro */
+  --color-primary: #3498db;
+  --color-secondary: #2ecc71;
+  --color-tertiary: #e74c3c;
+  --color-background: #f8f9fa;
+  --color-text: #212529;
+  --color-card-bg: #ffffff;
+  --color-card-border: #dee2e6;
+  --color-muted: #6c757d;
+  --color-heading: #343a40;
+  --color-link: #0d6efd;
+  --color-focus: #b8daff;
+  --color-hover: #e9ecef;
+  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+  --border-radius: 8px;
+  --transition-speed: 0.3s;
+}
+
+/* Estilos Gerais */
 body {
-    transition: background 0.3s, color 0.3s;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  transition: background-color var(--transition-speed), color var(--transition-speed);
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+a {
+  transition: color var(--transition-speed);
+}
+
+.btn {
+  transition: all var(--transition-speed);
+  border-radius: var(--border-radius);
+}
+
+.card {
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  overflow: hidden;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-md);
+}
+
+/* Acessibilidade - Links de pular navegação */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: var(--color-primary);
+  color: white;
+  padding: 8px;
+  z-index: 100;
+}
+
+.skip-link:focus {
+  top: 0;
+}
+
+/* Estilizando o input de busca */
+#search-input {
+  max-width: 100%;
+  border-radius: var(--border-radius);
+  padding: 12px;
+}
+
+/* Estilos para o campo de busca */
+.search-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.search-wrapper .form-control {
+  height: 50px;
+  border-radius: 25px;
+  padding-left: 20px;
+  padding-right: 50px;
+  font-size: 16px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  border: none;
+  transition: all 0.3s ease;
+}
+
+.search-wrapper .form-control:focus {
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  transform: translateY(-2px);
+}
+
+.search-wrapper .search-icon {
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: var(--color-primary);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  padding: 8px;
+  border-radius: 50%;
+}
+
+.search-wrapper .search-icon:hover {
+  background-color: rgba(52, 152, 219, 0.1);
+  transform: translateY(-50%) scale(1.1);
+}
+
+/* Ajustes para o modo escuro */
+body.dark-mode .search-wrapper .form-control {
+  background-color: #3b4a57;
+  color: #f8f9fa;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+body.dark-mode .search-wrapper .search-icon {
+  color: #63b3ed;
+}
+
+body.dark-mode .search-wrapper .form-control::placeholder {
+  color: #a0aec0;
+}
+
+body.dark-mode .search-wrapper .search-icon:hover {
+  background-color: rgba(99, 179, 237, 0.1);
+}
+
+/* Animação sutil ao focar no campo de busca */
+.search-wrapper .form-control:focus {
+  outline: none;
+}
+
+.search-wrapper .form-control:focus + .search-icon {
+  color: #2574a9;
+  transform: translateY(-50%) scale(1.1);
+}
+
+body.dark-mode .search-wrapper .form-control:focus + .search-icon {
+  color: #90cdf4;
+}
+
+/* Efeito pulse no ícone */
+@keyframes pulse {
+  0% { transform: translateY(-50%) scale(1); }
+  50% { transform: translateY(-50%) scale(1.1); }
+  100% { transform: translateY(-50%) scale(1); }
+}
+
+.search-wrapper .search-icon:active {
+  animation: pulse 0.3s ease;
+}
+
+/* Responsividade para dispositivos móveis */
+@media (max-width: 576px) {
+  .search-wrapper .form-control {
+    height: 45px;
+    font-size: 14px;
   }
   
-  /* Sobrescreve o bg-light quando dark mode estiver ativo */
-  body.dark-mode,
-  body.dark-mode.bg-light {
-    background-color: #2c3e50 !important;
-    color: white !important;
+  .search-wrapper .search-icon {
+    right: 12px;
+  }
+}
+
+/* Efeito hover nos botões de filtro */
+.filter-btn, .level-filter-btn {
+  transition: all var(--transition-speed);
+  border-radius: var(--border-radius);
+  margin: 0 4px 8px 0;
+}
+
+.filter-btn:hover, .level-filter-btn:hover {
+  transform: translateY(-2px);
+}
+
+/* Estilos responsivos */
+@media (max-width: 768px) {
+  .container {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+
+  .btn-group {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .btn-group .btn {
+    margin-bottom: 8px;
+    flex: 1 0 auto;
   }
   
-  /* Dark mode para Navbar */
-  body.dark-mode .navbar {
-    background-color: #1f2a36 !important;
+  h1 {
+    font-size: 1.8rem;
   }
   
-  /* Dark mode para Cards */
-  body.dark-mode .card {
-    background-color: #3b4a57;
-    color: white;
-    border: none;
-    box-shadow: none;
+  .lead {
+    font-size: 1rem;
   }
-  
-  /* Dark mode para botões outline-primary (filtros) */
-  body.dark-mode .btn.btn-outline-primary {
-    border-color: #ffffff !important;
-    color: white !important;
-    background-color: transparent !important;
+}
+
+/* Animações */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.5s ease-out forwards;
+}
+
+/* Estilos para os badges e níveis */
+.badge {
+  font-weight: 500;
+  padding: 0.35em 0.65em;
+  border-radius: 15px;
+}
+
+/* Botão voltar ao topo */
+#back-to-top {
+  opacity: 0.7;
+  border-radius: 50%;
+  width: 45px;
+  height: 45px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: opacity 0.3s ease;
+  z-index: 1000;
+}
+
+#back-to-top:hover {
+  opacity: 1;
+}
+
+/* Tema escuro */
+body.dark-mode {
+  background-color: #2c3e50 !important;
+  color: #f8f9fa !important;
+}
+
+body.dark-mode .navbar {
+  background-color: #1f2a36 !important;
+}
+
+body.dark-mode .card {
+  background-color: #3b4a57;
+  color: #f8f9fa;
+  border: none;
+}
+
+body.dark-mode .breadcrumb-item.active {
+  color: #e2e8f0;
+}
+
+body.dark-mode .breadcrumb a {
+  color: var(--color-primary);
+}
+
+body.dark-mode .form-control,
+body.dark-mode .form-select {
+  background-color: #3b4a57;
+  color: #f8f9fa;
+  border-color: #4a5568;
+}
+
+body.dark-mode .form-control::placeholder {
+  color: #a0aec0;
+}
+
+body.dark-mode .form-control:focus,
+body.dark-mode .form-select:focus {
+  background-color: #2d3748;
+  color: #f8f9fa;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 0.25rem rgba(52, 152, 219, 0.25);
+}
+
+body.dark-mode .input-group-text {
+  background-color: #4a5568;
+  color: #f8f9fa;
+  border-color: #4a5568;
+}
+
+body.dark-mode .btn-outline-primary {
+  border-color: #4a5568;
+  color: #f8f9fa;
+}
+
+body.dark-mode .btn-outline-primary:hover,
+body.dark-mode .btn-outline-primary.active {
+  background-color: var(--color-primary) !important;
+  border-color: var(--color-primary) !important;
+  color: #f8f9fa !important;
+}
+
+body.dark-mode .btn-outline-secondary {
+  border-color: #4a5568;
+  color: #f8f9fa;
+}
+
+body.dark-mode .btn-outline-secondary:hover,
+body.dark-mode .btn-outline-secondary.active {
+  background-color: #4a5568 !important;
+  border-color: #4a5568 !important;
+  color: #f8f9fa !important;
+}
+
+/* Melhorias de contraste para acessibilidade */
+.bg-success {
+  background-color: #2ecc71 !important;
+}
+
+.bg-warning {
+  background-color: #f39c12 !important;
+  color: #212529 !important;
+}
+
+.bg-danger {
+  background-color: #e74c3c !important;
+}
+
+.bg-info {
+  background-color: #3498db !important;
+}
+
+/* Efeito de loading */
+.skeleton-loading {
+  position: relative;
+  overflow: hidden;
+  background-color: #e2e8f0;
+}
+
+body.dark-mode .skeleton-loading {
+  background-color: #4a5568;
+}
+
+.skeleton-loading::after {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  transform: translateX(-100%);
+  background-image: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0,
+    rgba(255, 255, 255, 0.2) 20%,
+    rgba(255, 255, 255, 0.5) 60%,
+    rgba(255, 255, 255, 0)
+  );
+  animation: shimmer 2s infinite;
+  content: '';
+}
+
+@keyframes shimmer {
+  100% {
+    transform: translateX(100%);
   }
-  body.dark-mode .btn.btn-outline-primary:hover,
-  body.dark-mode .btn.btn-outline-primary.filter-btn.active,
-  body.dark-mode .btn.btn-outline-primary.active {
-    background-color: #3498db !important;
-    border-color: #3498db !important;
-    color: white !important;
-  }
-  
-  /* Dark mode para botões outline-light (ex: botão de tema) */
-  body.dark-mode .btn.btn-outline-light {
-    border-color: #ffffff !important;
-    color: white !important;
-    background-color: transparent !important;
-  }
-  body.dark-mode .btn.btn-outline-light:hover {
-    background-color: #3498db !important;
-    border-color: #3498db !important;
-    color: white !important;
-  }
-  
-  /* Dark mode para inputs */
-  body.dark-mode .form-control {
-    background-color: #3b4a57;
-    color: white;
-    border-color: #ffffff;
-  }
-  body.dark-mode .form-control::placeholder {
-    color: #bdc3c7;
-  }
-  
-  /* Estilo do Banner (opcional, sem conflito com Bootstrap) */
-  .banner {
-    text-align: center;
-    padding: 50px 20px;
-  }
-  
-  /* Limitar largura do input de busca */
-  #search-input {
-    max-width: 400px;
-  }
-  
-  /* Transição para os botões de filtro */
-  .filter-btn {
-    transition: background 0.3s, color 0.3s;
-  }
-  
-  /* Efeito de hover nos cards */
-  .card {
-    border-radius: 10px;
-    transition: transform 0.2s;
-  }
-  .card:hover {
-    transform: scale(1.03);
-  }
-  
-  /* Espaçamento do rodapé */
-  footer {
-    margin-top: 20px;
-  }
-  
+}
+
+/* Foco aprimorado para acessibilidade */
+a:focus, button:focus, input:focus, select:focus {
+  outline: 3px solid var(--color-focus);
+  outline-offset: 2px;
+}
+
+/* Estilo do spinner de carregamento */
+.spinner-border {
+  width: 3rem;
+  height: 3rem;
+}
+
+/* Transição suave para os botões active */
+.filter-btn.active, .level-filter-btn.active {
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+/* Footer links hover */
+footer a:hover {
+  color: var(--color-primary) !important;
+  text-decoration: underline !important;
+}

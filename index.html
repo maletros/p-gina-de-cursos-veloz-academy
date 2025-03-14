@@ -3,56 +3,153 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Veloz Academy - Sua plataforma de aprendizado online com cursos de programação, design, empreendedorismo e mais.">
     <title>Veloz Academy - Cursos</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
+    <!-- Favicons -->
+    <link rel="icon" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.8.1/icons/book.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.8.1/icons/book.svg">
 </head>
 <body class="bg-light">
-    <header class="navbar navbar-expand-lg navbar-dark bg-dark px-3">
-        <a class="navbar-brand fw-bold" href="#">VelozAcademy</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ms-auto">
-                <li class="nav-item"><a class="nav-link" href="#">Início</a></li>
-                <li class="nav-item"><a class="nav-link" href="#">Cursos</a></li>
-                <li class="nav-item"><a class="nav-link" href="#">Trilhas</a></li>
-                <li class="nav-item"><a class="nav-link" href="#">Leaderboard</a></li>
-            </ul>
-            <button id="theme-toggle" class="btn btn-outline-light ms-3">🌙</button>
-            <button class="btn btn-primary ms-2">Comece Agora</button>
+    <a href="#main-content" class="visually-hidden-focusable skip-link">Pular para o conteúdo principal</a>
+    
+    <header class="navbar navbar-expand-lg navbar-dark bg-dark px-3 sticky-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="#" aria-label="VelozAcademy Página Inicial">
+                <img src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.8.1/icons/book.svg" alt="" width="30" height="24" class="d-inline-block align-text-top me-2">
+                VelozAcademy
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Alternar navegação">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#" aria-current="page">Início</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="#">Cursos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Trilhas</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Leaderboard</a></li>
+                </ul>
+                <button id="theme-toggle" class="btn btn-outline-light ms-3" aria-label="Alternar tema escuro/claro">🌙</button>
+                <button class="btn btn-primary ms-2">Comece Agora</button>
+            </div>
         </div>
     </header>
 
+    <nav aria-label="breadcrumb" class="container mt-3">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="#">Início</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Cursos</li>
+        </ol>
+    </nav>
+
     <section class="text-center p-5 bg-primary text-white">
-        <h1>Todos os Cursos</h1>
-        <p>Explore nossa biblioteca completa de cursos em diferentes áreas de conhecimento.</p>
-        <input type="text" class="form-control w-50 mx-auto mt-3" placeholder="Buscar curso..." id="search-input">
+        <div class="container">
+            <h1 id="main-content">Todos os Cursos</h1>
+            <p class="lead">Explore nossa biblioteca completa de cursos em diferentes áreas de conhecimento.</p>
+            <div class="row justify-content-center">
+                <div class="col-md-6">
+                    <div class="search-wrapper">
+                        <label for="search-input" class="visually-hidden">Buscar curso</label>
+                        <input type="text" class="form-control" placeholder="Buscar curso..." id="search-input" aria-describedby="search-description">
+                        <button type="button" class="search-icon" aria-label="Buscar">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+                                <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+                            </svg>
+                        </button>
+                    </div>
+                    <small id="search-description" class="form-text text-light mt-2">Digite para filtrar cursos por título</small>
+                </div>
+            </div>
+        </div>
     </section>
 
-    <div class="container my-4">
-        <div class="d-flex justify-content-center gap-2 flex-wrap">
-            <button class="btn btn-outline-primary active filter-btn" data-category="Todos">Todos os Cursos</button>
-            <button class="btn btn-outline-primary filter-btn" data-category="Programação">Programação</button>
-            <button class="btn btn-outline-primary filter-btn" data-category="Empreendedorismo">Empreendedorismo</button>
-            <button class="btn btn-outline-primary filter-btn" data-category="Design">Design</button>
-            <button class="btn btn-outline-primary filter-btn" data-category="Marketing Digital">Marketing</button>
-            <button class="btn btn-outline-primary filter-btn" data-category="Data Science">Data Science</button>
+    <main class="container my-4">
+        <div class="d-flex justify-content-between align-items-center mb-4 flex-wrap">
+            <div class="filter-container mb-3 mb-md-0">
+                <h2 class="h5 mb-3">Filtrar por categoria</h2>
+                <div class="btn-group flex-wrap" role="group" aria-label="Filtros de categoria">
+                    <button class="btn btn-outline-primary active filter-btn" data-category="Todos">Todos os Cursos</button>
+                    <button class="btn btn-outline-primary filter-btn" data-category="Programação">Programação</button>
+                    <button class="btn btn-outline-primary filter-btn" data-category="Empreendedorismo">Empreendedorismo</button>
+                    <button class="btn btn-outline-primary filter-btn" data-category="Design">Design</button>
+                    <button class="btn btn-outline-primary filter-btn" data-category="Marketing Digital">Marketing</button>
+                    <button class="btn btn-outline-primary filter-btn" data-category="Data Science">Data Science</button>
+                </div>
+            </div>
+            <div class="sort-container">
+                <label for="sort-select" class="form-label">Ordenar por:</label>
+                <select id="sort-select" class="form-select">
+                    <option value="title">Título</option>
+                    <option value="duration">Duração</option>
+                    <option value="level">Nível</option>
+                </select>
+            </div>
         </div>
-    </div>
 
-    <div class="container">
+        <div class="mb-4">
+            <h2 class="h5 mb-3">Filtrar por nível</h2>
+            <div class="btn-group flex-wrap" role="group" aria-label="Filtros de nível">
+                <button class="btn btn-outline-secondary active level-filter-btn" data-level="Todos">Todos os Níveis</button>
+                <button class="btn btn-outline-secondary level-filter-btn" data-level="Iniciante">Iniciante</button>
+                <button class="btn btn-outline-secondary level-filter-btn" data-level="Intermediário">Intermediário</button>
+                <button class="btn btn-outline-secondary level-filter-btn" data-level="Avançado">Avançado</button>
+            </div>
+        </div>
+
+        <div id="filter-status" class="mb-3" aria-live="polite">
+            <span id="course-count">Mostrando todos os cursos</span>
+        </div>
+
         <div class="row" id="courses-list">
             <!-- Cursos serão inseridos aqui -->
+            <div class="col-12 text-center py-5" id="loading-indicator">
+                <div class="spinner-border text-primary" role="status">
+                    <span class="visually-hidden">Carregando...</span>
+                </div>
+            </div>
+            <div class="col-12 text-center py-5 d-none" id="no-results">
+                <p class="h4">Nenhum curso encontrado com os filtros selecionados.</p>
+                <button id="reset-filters" class="btn btn-primary mt-3">Limpar filtros</button>
+            </div>
         </div>
-    </div>
+    </main>
 
-    <footer class="text-center p-3 bg-dark text-white mt-4">
-        <p>&copy; 2025 VelozAcademy - Todos os direitos reservados</p>
+    <footer class="text-center p-4 bg-dark text-white mt-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-3 mb-md-0">
+                    <h3 class="h5">VelozAcademy</h3>
+                    <p class="small">Cursos online para impulsionar sua carreira.</p>
+                </div>
+                <div class="col-md-4 mb-3 mb-md-0">
+                    <h3 class="h5">Links rápidos</h3>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-white text-decoration-none">Sobre nós</a></li>
+                        <li><a href="#" class="text-white text-decoration-none">Contato</a></li>
+                        <li><a href="#" class="text-white text-decoration-none">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h3 class="h5">Conecte-se</h3>
+                    <div class="d-flex justify-content-center">
+                        <a href="#" class="text-white mx-2" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+                        <a href="#" class="text-white mx-2" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+                        <a href="#" class="text-white mx-2" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+            <hr class="my-3">
+            <p class="mb-0">&copy; 2025 VelozAcademy - Todos os direitos reservados</p>
+        </div>
     </footer>
 
+    <button id="back-to-top" class="btn btn-primary position-fixed bottom-0 end-0 m-3 d-none" aria-label="Voltar ao topo">
+        <i class="bi bi-arrow-up"></i>
+    </button>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
     <script src="script.js"></script>
 </body>
 </html>
